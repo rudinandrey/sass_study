@@ -1,0 +1,77 @@
+@import "variables";
+@import "mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@include link(#000, red, blue, green);
+
+#grid {
+  float: left;
+  width: 100%;
+
+  > div {
+    @include grid(4, 2%);
+  }
+}
+
+.block:not(.first) {
+  @include padd(20px 40px);
+  background-color: $bgColor;
+  height: 200px;
+  width: $blockWidth;
+  margin-bottom: 20px;
+  border: $border;
+}
+
+.first {
+  width: $blockWidth;
+  border: $border;
+  background-color: $bgColor;
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+#central_block {
+  padding: 20px;
+  clear: both;
+
+  ul {
+    list-style: none;
+    clear: both;
+
+    li {
+      float: left;
+      //margin-right: 10px;
+      width: (100% / 2);
+
+
+      a {
+        @include font($fontWeigth: bold);
+        span {
+
+        }
+
+        &:hover {
+          color: green;
+        }
+
+        &:before {
+          content: '-> ';
+        }
+      }
+
+
+    }
+  }
+
+  p {
+    @include font($color: blue);
+    clear: both;
+    padding-top: 30px;
+
+  }
+
+}
